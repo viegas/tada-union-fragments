@@ -1,0 +1,29 @@
+type Query {
+  myQuery: MyQueryResult
+}
+
+type MyQueryResult {
+    users: UsersResult!
+}
+
+
+union UsersResult =
+      AdminUser
+    | User
+    | UserNotFound
+
+
+type AdminUser {
+    id: String!
+    name: String!
+    access: String!
+}
+type User  {
+    id: String!
+    name: String!
+}
+type UserNotFound {
+    message: String!
+}
+
+
